@@ -34,9 +34,6 @@ Ta wtyczka sprawdza treść bieżącego dokumentu w Geany, wykorzystując
 bibliotekę do sprawdzania pisowni enchant. Możesz również wybrać
 fragment tekstu, wtedy wtyczka sprawdzi jedynie zaznaczony tekst.
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %prep
 %setup -q -n spellcheck-%{version}
 
@@ -61,6 +58,9 @@ mv  $RPM_BUILD_ROOT%{_docdir}/geany-plugins/spellcheck/* $RPM_BUILD_ROOT%{_docdi
 rm -r $RPM_BUILD_ROOT%{_docdir}/geany-plugins
 
 %find_lang geanyspellcheck
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files -f geanyspellcheck.lang
 %defattr(644,root,root,755)
